@@ -1,0 +1,45 @@
+<div class="flex-container">
+    <div id="left" class="flex-item">
+        <h3 class="sub-title">Available Berders</h3>
+        <!--Avaliable burgers display here-->
+        {{#each burger}}
+        {{#unless devoured }}
+        <div class="flex-container display-burger">
+            <p class="avail-burger flex-item" burger-id="{{id}}">{{id}}. {{name}} Ordered by:{{Customer.name}}</p>
+            <button class="eat-burger flex-item" burger-id="{{id}}">DEVOUR!</button>
+        </div>
+        {{/unless}}
+        {{/each}}
+    </div>
+    <div id="center" class="flex-item">
+        <form>
+                
+            <div>
+                <label for="customer-name" style="margin: 0 auto;">
+                    <h3 class="sub-title">Customer Name</h3>
+                </label>
+                <input id="customer-name" placeholder="Old McDonald"></input>
+            </div>
+            <div>
+                <label for="burger-name" style="margin: 0 auto;">
+                    <h3 class="sub-title">Burger Name</h3>
+                </label>
+                <input id="burger-name" placeholder="What kind of berder would you like to order?"></input>
+            </div>
+            <button id="add-burger">Add Berder!</button>
+        </form>
+    </div>
+    <div id="right" class="flex-item">
+        <!--Devoured burgers display here-->
+        <h3 class="sub-title">Devoured Berders</h3>
+            {{#each burger}}
+            {{#if devoured }}
+        <div class="flex-container">
+            <p class="devoured-burger flex-item" burger-id={{id}}>{{id}}. {{name}} Ordered by:{{Customer.name}}</p>
+        </div>
+            {{/if}}
+            {{/each}}
+    </div>
+</div>
+
+<script src="./assets/js/front.js"></script>
